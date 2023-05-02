@@ -1,0 +1,36 @@
+.product {
+
+}
+
+.product_body {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 66%;
+    padding: 10px;
+}
+
+.product_img {
+    display: inline;
+    margin: 20px;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.product_info {
+    margin: 10px 10px;
+}
+
+.product_name {
+    margin: 5px;
+}
+
+.product_id {
+    margin: 5px;
+}
+
+.product_about {
+    font-family: Arial;
+    margin: 5px;
+}
+

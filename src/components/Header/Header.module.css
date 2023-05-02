@@ -1,0 +1,167 @@
+
+
+    .header {
+        box-sizing: border-box;
+        display: flex;
+
+        /*flex-direction: column;*/
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        max-height: 250px;
+    }
+
+    .phone_menu {
+        display: none;
+    }
+    .phone_favorites{
+        display: none;
+    }
+    .phone_inputs{
+        display: none;
+    }
+
+    .header img {
+        padding: 20px;
+        margin: auto;
+        max-width: 150px;
+    }
+
+    .headerMenu {
+        justify-content: space-around;
+        list-style-type: none;
+        padding: 10px 0;
+        margin: 0;
+        align-items: center;
+    }
+    ul {
+        display: flex;
+    }
+
+    .auth_menu{
+        position: relative;
+        top: 30px;
+        right: 30px;
+        text-align: right;
+    }
+
+    .menuItem {
+        font-family: "Segoe UI";
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 100;
+        margin: auto 15px;
+        background: none;
+        border-radius: 40px;
+        padding: 10px;
+        /*height: 40px;*/
+        /*width: 100%;*/
+        transition: background 500ms ease-in-out;
+    }
+
+
+
+    .menuItem ul {
+        display: inline-block;
+        left: 0;
+    }
+
+    .activeInset {
+
+    }
+
+    .menuItem_block {
+
+    }
+
+    .menuItem:hover {
+        color: white;
+        background: rgb(0, 52, 183);
+    }
+    .menuItem_block a {
+        opacity: 1;
+    }
+
+    .menuItem_block:hover hr {
+        opacity: 1;
+        display: block;
+        width: 100%;
+    }
+
+    .activeInset{
+        color: white;
+        background: rgb(0, 52, 183);
+    }
+
+    .menuItemLogo {
+        display: flex;
+        align-items: center;
+        margin-left: 40px;
+        color: white;
+        /*max-width: 500px;*/
+        font-weight: bold;
+        font-family: Arial;
+        font-size: 28px;
+        justify-content: left;
+        /*max-width: 200px;*/
+        text-decoration: none;
+    }
+
+    .menuItemLogo:hover {
+        color: white;
+    }
+
+@media screen and (max-width: 1600px) {
+    .menuItem {
+        font-size: 16px;
+        margin: auto 10px;
+    }
+
+}
+
+
+@media screen and (max-width: 500px) {
+    .phone_menu {
+        display: flex;
+        justify-self: start;
+        background: none;
+        border: none;
+        font-size: 30px;
+        color: white;
+        margin-right: 36px;
+    }
+    .phone_favorites{
+        display: flex;
+        justify-self: start;
+        background: none;
+        border: none;
+        color: rgb(0, 168, 232);
+    }
+    .phone_inputs{
+        display: flex;
+    }
+
+    .header {
+        justify-content: space-between;
+    }
+
+    .headerMenu {
+        display: none;
+    }
+
+    .menuItemLogo {
+        margin: 0;
+        font-size: 14px;
+    }
+    .menuItemLogo img {
+        justify-content: center;
+        padding: 3px;
+        max-width: 50px;
+    }
+}

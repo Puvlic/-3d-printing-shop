@@ -1,0 +1,153 @@
+.catalog {
+    margin: 0;
+}
+
+.catalog_body {
+    color: rgb(108, 92, 231);
+    text-align: center;
+    /*border: 2px solid rgb(106, 176, 76);*/
+    /*border-width: 0 3px 3px;*/
+    /*border-radius: 0 0 40px 40px;*/
+    /*background: rgb(186, 220, 88);*/
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+}
+
+
+.catalog_product {
+    padding: 20px;
+    background: rgb(0, 126, 167);
+    display: inline-block;
+    margin: 20px 20px;
+    font-family: 'TildaSans',Arial,sans-serif;
+    font-weight: 700;
+}
+
+.product_info {
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+    margin-top: 30px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.productImage {
+    width: 300px;
+    height: 300px;
+    /*position: absolute;*/
+    margin: auto;
+}
+
+.favoriteButton {
+    background: rgb(0, 168, 232);
+    display: table-cell;
+    position: absolute;
+    right: -30px; top: -30px;
+    border: none;
+    border-radius: 40px;
+    min-width: 60px;
+    font-size: 20px;
+    min-height: 60px;
+    text-shadow: black 1px 0px, black 1px 1px, black 0px 1px, black -1px 1px, black -1px 0px, black -1px -1px, black 0px -1px, black 1px -1px;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.favoriteButton:hover {
+    font-size: 30px;
+}
+
+.favoriteInclude {
+    color: red;
+}
+
+.button {
+    font-family: Arial;
+    color:  white;
+    min-width: 120px;
+    min-height: 40px;
+    background: rgb(0, 52, 183);
+    border: 0px solid rgb(108, 92, 231);
+    border-radius: 40px;
+    box-shadow: 0 0 0 rgba(0,0,0,0.5);
+    margin: 0 7px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.button:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+
+
+
+.imageBox {
+    position:relative;
+}
+
+@media screen and (max-width: 1600px) {
+    .catalog_product {
+        width: 250px;
+        max-height: 400px;
+        margin: 10px
+    }
+    .productImage {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+    .product_info {
+        font-size: 16px;
+        margin-top: 25px;
+    }
+    .button {
+        min-width: 90px;
+        min-height: 35px;
+        font-size: 16px;
+        margin: 0 5px;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 500px) {
+    .catalog_product {
+        width: 100px;
+        max-height: 180px;
+        margin: 5px;
+        padding: 0px;
+    }
+    .productImage {
+        padding: 0;
+        width: 90px;
+        height: 90px;
+        margin: 5px;
+    }
+    .imageBox {
+        padding: 0;
+        margin: 0;
+    }
+    .product_info {
+        font-size: 8px;
+        margin-top: 5px;
+    }
+    .button {
+        min-width: 45px;
+        min-height: 15px;
+        font-size: 8px;
+        margin: 0 2px;
+        padding: 0;
+    }
+    .favoriteButton {
+        min-width: 30px;
+        min-height: 30px;
+        font-size: 10px;
+        right: -5px; top: -5px;
+    }
+    .favoriteButton:hover {  
+        font-size: 10px;
+    }
+    .buttons {
+        margin: 3px 0;
+    }
+}

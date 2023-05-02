@@ -1,0 +1,32 @@
+.wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+}
+.block {
+    font-family: Arial;
+    margin-top: 70px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+}
+.wrapper h2 {
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+}
+.mar {
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper {
+        max-width: 95%;
+    }
+    .block {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+}
