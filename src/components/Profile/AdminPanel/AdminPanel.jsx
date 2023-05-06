@@ -216,6 +216,9 @@ const AdminPanel = (props) => {
                                 <div className={css.maket_id}>
                                     id: {maket.id}
                                 </div>
+                                <div>
+                                    {maket.price > 0 ? 'Цена: ' + maket.price : ''}
+                                </div>
                                 <button className={css.download_button} id={maket.id} onClick={DownloadFile}>Скачать файл</button>
                             </div>
                             <div className={css.maket_status}>

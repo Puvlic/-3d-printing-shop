@@ -51,7 +51,7 @@ const MaketChange = () => {
                 {validation.text}
             </div>
             <div className={css.buttons_block}>
-                <NavLink onClick={acceptMaket} className={css.links}>Изменить</NavLink>
+                <NavLink onClick={acceptMaket} className={css.links}>Оформить</NavLink>
                 <NavLink to={'/admin'} className={css.links}>Назад</NavLink>
             </div>
         </div>
