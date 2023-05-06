@@ -3,7 +3,8 @@ import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
     return {
-
+        products: state.cartPage.products,
+        activeInset: state.ordersPage.activeInset
     }
 }
 

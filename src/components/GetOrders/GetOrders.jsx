@@ -2,10 +2,12 @@ import React, {useEffect} from 'react';
 import css from './GetOrders.module.css'
 import axios from "axios";
 import {useState} from "react";
+import DeliveryTypeContainer from "./DeliveryType/DeliveryTypeContainer";
 
 const GetOrders = (props) => {
 
-    const [cartProducts, setProduct] = useState([])
+    const [cartProducts, setCartProduct] = useState([])
+    const products = props.products
 
     let price = 0
 
@@ -19,22 +21,28 @@ const GetOrders = (props) => {
                 cartProduct.push(product)
             })
         }
-
         let sort = cartProduct.sort((a, b) => a.id > b.id ? 1 : -1);
-        console.log(sort)
-        setProduct(sort)
+        setCartProduct(sort)
     }
 
-    useEffect(() => {
-            getCartProducts()
-    }, [cartProducts])
-
-
-    console.log(cartProducts)
+        if (products.length !== cartProducts.length) {
+            getCartProducts().then()
+        }
+        else if (cartProducts.length === products.length) {
+            let sort = products.sort((a, b) => a.product_id > b.product_id ? 1 : -1);
+            for (let i = 0; i < products.length; i++) {
+                debugger
+                if (cartProducts[i].productCount !== sort[i].count) {
+                    getCartProducts().then()
+                }
+            }
+        }
 
     for (let i = 0; i < cartProducts.length; i++) {
         price += cartProducts[i].price * cartProducts[i].productCount
     }
+
+    console.log(cartProducts)
 
     if (cartProducts.length !== 0) {
         return (
@@ -62,12 +70,12 @@ const GetOrders = (props) => {
                     Итого: {price}
                 </div>
                 <hr/>
-
+                <DeliveryTypeContainer cartProducts={cartProducts}/>
             </div>
         );
     } else {
         return (
-            <div>
+            <div className={css.empty_cart}>
                 Корзина пуста
             </div>
         )

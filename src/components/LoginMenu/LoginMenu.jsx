@@ -6,8 +6,18 @@ import Products from "../Cart/Products/Products";
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import {decodeToken} from "react-jwt";
+import {useState} from "react";
 
 const LoginMenu = (props) => {
+
+    const [registerValidation, setRegisterValidation] = useState({
+        class: css.validation,
+        text: ""
+    })
+    const [loginValidation, setLoginValidation] = useState({
+        class: css.validation,
+        text: ""
+    })
 
     const cookies = new Cookies();
 
@@ -70,6 +80,13 @@ const LoginMenu = (props) => {
     }
 
     const SetUser = async () => {
+        if (!props.username || !props.password) {
+            setLoginValidation({
+                class: css.validation_denied,
+                text: "Не все поля были заполнены"
+            })
+            return
+        }
         let user = await axios.post('http://localhost:8080/api/login', {
             username: props.username,
             password: props.password
@@ -79,6 +96,17 @@ const LoginMenu = (props) => {
             singIn(true);
         }).catch((error) => {
             console.log(error);
+            if (error.response.data.errors !== undefined) {
+                setLoginValidation({
+                    class: css.validation_denied,
+                    text: error.response.data.errors.errors[0].msg
+                })
+            } else {
+                setLoginValidation({
+                    class: css.validation_denied,
+                    text: error.response.data.message
+                })
+            }
         });
         await axios
             .get('http://localhost:8080/api/cart/new/' + decodeToken(cookies.get('jwt')).id )
@@ -86,15 +114,16 @@ const LoginMenu = (props) => {
                 props.onCleanProducts()
                 props.onSetProductsActionCreator(res.data)
         })
-        // await axios
-        //     .get('http://localhost:8080/api/cart/' + decodeToken(cookies.get('jwt')).id)
-        //     .then(res => {
-        //         console.log(res.data)
-        //         setCartProduct(res.data)
-        //     })
     }
 
     const Registration = async () => {
+        if (!props.registerName || !props.registerSurname || !props.registerUsername || !props.registerEmail || !props.registerPassword) {
+            setRegisterValidation({
+                class: css.validation_denied,
+                text: "Не все поля были заполнены"
+            })
+            return
+        }
         console.log(props.registerName, props.registerSurname, props.registerUsername, props.registerPassword)
         let newUser = await axios.post('http://localhost:8080/api/registration', {
             name: props.registerName,
@@ -104,10 +133,27 @@ const LoginMenu = (props) => {
             email: props.registerEmail
         }).then ((res) => {
             console.log(res)
+            setRegisterValidation({
+                class: css.validation,
+                text: ""
+            })
             RegisterInfoClean()
             props.onSetRegisterActive(false)
         }).catch((error) => {
             console.log(error)
+            console.log(error.response.data.errors)
+            if (error.response.data.errors !== undefined) {
+                setRegisterValidation({
+                    class: css.validation_denied,
+                    text: error.response.data.errors.errors[0].msg
+                })
+            } else {
+                setRegisterValidation({
+                    class: css.validation_denied,
+                    text: error.response.data.message
+                })
+            }
+
             props.onRegisterUsernameChange("")
             props.onRegisterPasswordChange("")
             return
@@ -128,6 +174,9 @@ const LoginMenu = (props) => {
                         <input onChange={UsernameChange} type="text" placeholder='username' className={css.login_input} value={props.username}/>
                         <div className={css.paragrph}>Пароль</div>
                         <input onChange={PasswordChange} type="password" placeholder='password' className={css.login_input} value={props.password}/>
+                        <div className={css.validation + " " + loginValidation.class}>
+                            {loginValidation.text}
+                        </div>
                         <div className={css.buttons}>
                             <button onClick={SetUser}>Вход</button>
                             <button onClick={OpenRegisterMenu}>Регистрация</button>
@@ -154,6 +203,9 @@ const LoginMenu = (props) => {
                         <input onChange={RegisterEmailChange} type="text" placeholder='email' className={css.login_input} value={props.registerEmail}/>
                         <div className={css.paragrph}>Пароль</div>
                         <input onChange={RegisterPasswordChange} type="password" placeholder='password' className={css.login_input} value={props.registerPassword}/>
+                        <div className={css.validation + " " + registerValidation.class}>
+                            {registerValidation.text}
+                        </div>
                         <div className={css.buttons}>
                             <button onClick={CloseRegisterMenu}>Авторизация</button>
                             <button onClick={Registration}>Зарегистрироваться</button>

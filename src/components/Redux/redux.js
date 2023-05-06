@@ -6,6 +6,9 @@ import HeaderReducer from "./Resucers/HeaderReducer";
 import MaketReducer from "./Resucers/MaketReducer";
 import LoginMenuReducer from "./Resucers/LoginMenuReducer";
 import UserContextMenuReducer from "./Resucers/UserContextMenuReducer";
+import GetOrdersReducer from "./Resucers/GetOrdersReducer";
+import AdminPanelReducer from "./Resucers/AdminPanelReducer";
+import OrdersReducer from "./Resucers/OrdersReducer";
 
 let reducers = combineReducers({
     catalogPage: CatalogReducer,
@@ -14,7 +17,10 @@ let reducers = combineReducers({
     header: HeaderReducer,
     maket: MaketReducer,
     loginMenu: LoginMenuReducer,
-    userContextMenu: UserContextMenuReducer
+    userContextMenu: UserContextMenuReducer,
+    getOrdersPage: GetOrdersReducer,
+    adminPanelPage: AdminPanelReducer,
+    ordersPage: OrdersReducer,
 })
 
 let store = createStore(reducers);

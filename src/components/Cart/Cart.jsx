@@ -25,7 +25,6 @@ const Cart = (props) => {
                     StateUpdate(res.data)
                 }
             })
-            console.log(props.products)
         }
     }
 

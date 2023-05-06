@@ -15,6 +15,13 @@ const Profile = (props) => {
     const cookies = new Cookies();
     let jwt = cookies.get('jwt')
     let decoded = decodeToken(jwt)
+    let admin_panel
+    console.log(decoded)
+    if (jwt) {
+        admin_panel = decoded.roles === 2 ? css.admin_panel_activate : css.admin_panel_deactivate
+    }
+
+    console.log(admin_panel)
 
     const Logout = () => {
         props.onSetActiveAC(false)
@@ -56,24 +63,30 @@ const Profile = (props) => {
                         <div className={css.user_info}>
                             {user.surname}
                         </div>
-                        <button className={css.logout_button} onClick={Logout}>
-                            <NavLink className={css.next_order} to='/'>Выйти</NavLink>
-                        </button>
-
                     </div>
                     <div className={css.user_info_email}>
                         {user.email}
                     </div>
+                    <button className={css.logout_button} onClick={Logout}>
+                        <NavLink className={css.next_order} to='/'>Выйти</NavLink>
+                    </button>
                 </div>
 
-
                 <div className={css.orders_wrapper}>
-                    <NavLink className={css.orders_list}>
+                    <NavLink to="/orders" className={css.orders_list}>
                         Спиок заказов
                     </NavLink>
-                    <div className={css.next_order}>
-                        Ближайший заказ
-                    </div>
+
+                </div>
+                <div className={css.maket_panel}>
+                    <NavLink to={"/approved_makets/" + user.id} className={css.orders_list}>
+                        Одобренные макеты
+                    </NavLink>
+                </div>
+                <div className={admin_panel}>
+                    <NavLink to="/admin" className={css.orders_list}>
+                        Пенель администратора
+                    </NavLink>
                 </div>
             </div>
         )

@@ -1,8 +1,9 @@
 import css from './App.module.css'
 import './App.css';
-import Main from "./components/Main/Main";
 import {BrowserRouter, Router, Route} from "react-router-dom";
 import {Routes} from "react-router";
+import Cookies from 'universal-cookie';
+import Delivery from "./components/Delivery/Delivery";
 import {CatalogContainer} from "./components/Catalog/CatalogContainer";
 import {ProductContainer} from "./components/Catalog/Product/ProductContainer";
 import CartContainer from "./components/Cart/CartContainer";
@@ -12,19 +13,16 @@ import FooterContainer from "./components/Footer/FooterConteiner";
 import MaketContainer from "./components/Maket/MaketContainer";
 import MainContainer from "./components/Main/MainContainer";
 import LoginMenuContainer from "./components/LoginMenu/LoginMenuContainer";
-import AboutUs from "./components/AboutUs/AboutUs";
 import AboutUsContainer from "./components/AboutUs/AboutUsContainer";
-import store from "./components/Redux/redux";
-import Cookies from 'universal-cookie';
-import Delivery from "./components/Delivery/Delivery";
-import UserContextMenu from "./components/Redux/Resucers/UserContextMenuReducer";
 import UserContextMenuContainer from "./components/UserContextMenu/UserContextMenuContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import GetOrders from "./components/GetOrders/GetOrders";
-import Orders from "./components/Profile/Orders/Orders";
 import GetOrdersContainer from "./components/GetOrders/GetOrdersContainer";
-
-
+import OrdersContainer from "./components/Profile/Orders/OrdersContainer";
+import AdminPanelContainer from "./components/Profile/AdminPanel/AdminPanelContainer";
+import ChangeOrderContainer from "./components/Profile/AdminPanel/OrderChange/ChangeOrderContainer";
+import ProductChange from "./components/Profile/AdminPanel/ProductChange/ProductChange";
+import MaketChange from "./components/Profile/AdminPanel/MaketChange/MaketChange";
+import Makets from "./components/Profile/Makets/Makets";
 
 const App = (props) => {
     let cartActive = props.cartActive
@@ -101,7 +99,12 @@ const App = (props) => {
                         <Route path='/delivery' element={<Delivery/>}></Route>
                         <Route path='/profile' element={<ProfileContainer/>}></Route>
                         <Route path='/get_orders' element={<GetOrdersContainer/>}></Route>
-                        <Route path='/orders' element={<Orders/>}></Route>
+                        <Route path='/orders' element={<OrdersContainer/>}></Route>
+                        <Route path='/admin' element={<AdminPanelContainer/>}></Route>
+                        <Route path='/admin/change_order/:id' element={<ChangeOrderContainer/>}></Route>
+                        <Route path='/admin/change_product/:id' element={<ProductChange/>}></Route>
+                        <Route path='/admin/change_maket/:id' element={<MaketChange/>}></Route>
+                        <Route path='/approved_makets/:id' element={<Makets/>}></Route>
                     </Routes>
                 </div>
                 <FooterContainer className={css.footer}/>

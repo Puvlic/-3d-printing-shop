@@ -13,16 +13,6 @@ const PT = {
 }
 
 let InitiateCatalog = {
-    // products: [
-    //     {id: 1, type: PT.animals, name: 'Динозавр', img: null, price: 1199},
-    //     {id: 2, type: PT.super_heroes, name: 'Человек-паук', img: null, price: 1999},
-    //     {id: 3, type: PT.super_heroes, name: 'Супер мен', img: null, price: 1999},
-    //     {id: 4, type: PT.animals, name: 'Кошка', img: null, price: 899},
-    //     {id: 5, type: PT.animals, name: 'Черепаха', img: null, price: 699},
-    //     {id: 6, type: PT.city, name: 'Дом', img: null, price: 4499},
-    //     {id: 7, type: PT.city, name: 'Машина', img: null, price: 2599},
-    //     {id: 8, type: PT.city, name: 'Светофор', img: null, price: 1999}
-    // ],
     productTypes: [],
     activeProduct: null,
     activeType: 1,

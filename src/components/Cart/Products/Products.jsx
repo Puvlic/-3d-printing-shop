@@ -15,13 +15,13 @@ const Products = (props) => {
     let decoded
 
 
-    const getCartProducts = async (products) => {
+    const getCartProducts = async () => {
         let cartProducts = []
-            for (let i = 0; i < products.length; i++) {
-            await axios.get('http://localhost:8080/api/product/' + products[i].product_id).then(res => {
+            for (let i = 0; i < props.products.length; i++) {
+            await axios.get('http://localhost:8080/api/product/' + props.products[i].product_id).then(res => {
                 let product = res.data
-                product.productCount = products[i].count
-                product.cartId = products[i].id
+                product.productCount = props.products[i].count
+                product.cartId = props.products[i].id
                 cartProducts.push(product)
             })
         }
@@ -37,7 +37,15 @@ const Products = (props) => {
     // }
     useEffect(() => {
             if (cartProduct.length !== props.products.length) {
-                getCartProducts(props.products)
+                getCartProducts().then()
+            } else if (cartProduct.length === props.products.length) {
+                let sort = props.products.sort((a, b) => a.product_id > b.product_id ? 1 : -1);
+                for (let i = 0; i < props.products.length; i++) {
+                    debugger
+                    if (cartProduct[i].productCount !== sort[i].count) {
+                        getCartProducts().then()
+                    }
+                }
             }
     })
 
@@ -95,7 +103,6 @@ const Products = (props) => {
             })
             IncreaseProductCountInState(Number(event.target.name))
         }
-
     }
 
     const DecreaseProductCountInState = (id) => {
@@ -142,9 +149,7 @@ const Products = (props) => {
             currentPrice += cartProduct[i].price * cartProduct[i].productCount
         }
     }
-
     console.log(cartProduct)
-
     if (cartProduct.length !== 0) {
         return (
             <div>

@@ -22,14 +22,12 @@ const CartReducer = (state = InitiateState, active) => {
                 ...state,
                 products: [...state.products, product]
             }
-            debugger
         }
         case REMOVE_PRODUCT: {
             return {
                 ...state,
                 products: state.products.filter(product => product.id != active.id)
             }
-            debugger
         }
         case CLEAN_PRODUCTS: {
             return {

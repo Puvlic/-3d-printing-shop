@@ -4,10 +4,13 @@
 }
 
 .product_wrapper {
-    margin: 0 auto;
+    color: white;
+    background: rgb(0, 126, 167);
+    padding: 20px;
+    margin: 20px;
     width: 100%;
     display: flex;
-    margin-bottom: 10px;
+    border-radius: 20px;
     align-items: center;
 }
 
@@ -18,7 +21,6 @@
 
 .product_info {
     padding-left: 5px;
-
 }
 
 .product_name {
@@ -43,3 +45,11 @@
     justify-content: end;
     font-size: 30px;
 }
+
+.empty_cart {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 25px;
+}
+

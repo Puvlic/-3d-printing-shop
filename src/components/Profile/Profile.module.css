@@ -1,5 +1,5 @@
 .profile_wrapper {
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -25,7 +25,8 @@
 }
 
 .logout_button {
-    margin-left: 40px;
+    padding: 0;
+    margin: 0;
     background: none;
     border: none;
     color: white;
@@ -56,7 +57,7 @@
 
 .orders_list {
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .orders_list:hover {
@@ -64,7 +65,9 @@
 }
 
 .next_order {
+    margin: 0;
     margin-top: 30px;
+    padding: 0;
     color: white;
     font-size: 18px;
 }
@@ -79,4 +82,26 @@
     color: white;
     font-size: 25px;
     margin: 0 auto;
+}
+
+.admin_panel_activate {
+    display: block;
+    margin-left: 20px;
+    width: 34%;
+    background: rgb(0, 126, 167);
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.admin_panel_deactivate {
+    display: none;
+}
+
+.maket_panel {
+    display: block;
+    margin-left: 20px;
+    width: 34%;
+    background: rgb(0, 126, 167);
+    padding: 20px;
+    border-radius: 40px;
 }

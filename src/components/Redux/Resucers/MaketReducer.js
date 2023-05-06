@@ -5,9 +5,7 @@ const SELECT_FILE = "SELECT-FILE"
 const InitialMaket = {
     _maxFilesCount: 9,
     _uploadFileTypes: [
-        'image/jpeg',
-        'image/pjpeg',
-        'image/png'
+        'model/stl'
     ],
     uploadFiles: [],
     currentUploadImg: null,

@@ -40,33 +40,6 @@ const Main = (props) => {
     popularProducts = GetPopularProducts();
     debugger
 
-    const Redirect = (event) => {
-        props.onSetActiveProduct(Number(event.target.id))
-    }
-
-    const AddFavorite = (event) => {
-        let productInFavorite
-        props.products.forEach(product => product.id === Number(event.target.id) ? productInFavorite = product : '')
-        props.onAddFavorite(productInFavorite)
-    }
-
-    const RemoveFavorite = (event) => {
-        let productInFavorite
-        props.products.forEach(product => product.id === Number(event.target.id) ? productInFavorite = product : '')
-        props.onRemoveFavorite(productInFavorite)
-    }
-
-    const AddInCart = (event) => {
-        let productInCart
-        props.products.forEach(product => product.id === Number(event.target.id) ? productInCart = product : '')
-        props.onAddInCart(productInCart)
-    }
-
-    const RemoveFromCart = (event) => {
-        let productFromCart
-        props.cart.forEach(product => product.id === Number(event.target.id) ? productFromCart = product : '')
-        props.onRemoveFromCart(productFromCart)
-    }
     return (
         <div className={css.main}>
             <div className={css.start_buying_block}>

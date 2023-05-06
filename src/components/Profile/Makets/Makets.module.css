@@ -1,70 +1,3 @@
-.activate {}
-
-.deactivate {
-    display: none;
-}
-
-.back_to_menu_button {
-    background: rgb(0, 52, 183);
-    border: none;
-    border-radius: 40px;
-    padding: 10px 20px;
-    color: white;
-    font-size: 16px;
-    font-family: Arial;
-    margin-left: 27.5%;
-    text-decoration: none;
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-.back_to_menu_button:hover {
-    box-shadow: 0 0 5px rgba(0,0,0,1);
-    color: white;
-}
-
-.order_wrapper {
-    color: white;
-    background: rgb(0, 126, 167);
-    padding: 20px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: start;
-    width: 45%;
-    border-radius: 20px;
-}
-
-.order_img {
-    width: 100px;
-    border-radius: 15px;
-}
-
-.order_info {
-    margin-left: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.order_name {
-    font-size: 20px;
-}
-
-.order_id {
-    font-size: 14px;
-}
-
-.order_count {
-    font-size: 14px;
-}
-
-.order_status {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: auto;
-    justify-content: center;
-}
-
 .back_to_menu_button {
     background: rgb(0, 52, 183);
     border: none;
@@ -106,11 +39,9 @@
 }
 
 .maket_status {
-    font-size: 20px;
     text-align: right;
     margin-left: auto;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 

@@ -1,9 +1,12 @@
 .body {
+    background: rgb(0, 126, 167);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
-    width: 80%;
+    border-radius: 20px;
+    width: 30%;
     margin: 0 auto;
+    padding: 30px;
 }
 .maket_buttons {
     display: flex;
@@ -11,10 +14,11 @@
 }
 
 .button {
+
     font-family: Arial;
     color:  white;
-    min-width: 120px;
-    min-height: 40px;
+    min-width: 116px;
+    min-height: 45px;
     background: rgb(0, 52, 183);
     border: 0px solid rgb(108, 92, 231);
     border-radius: 40px;
@@ -32,14 +36,14 @@
 }
 
 .upload_file {
+    padding: 0;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     min-width: 116px;
-    min-height: 36px;
+    min-height: 45px;
     width: 135px;
-    height: 40px;
-    margin: 2px 20px;
+    margin: 0 7px;
     border: 0px solid rgb(108, 92, 231);
     border-radius: 40px;
     text-align: center;
@@ -61,6 +65,28 @@
     margin: 10px auto;
     border: 1px dashed gray;
 }
+
+.file_name {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.input_wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 
 @media screen and (max-width: 500px) {
     .maket {

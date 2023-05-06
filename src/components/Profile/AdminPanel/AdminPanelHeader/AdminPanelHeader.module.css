@@ -1,0 +1,24 @@
+.header_wrapper {
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+}
+.header_list {
+
+}
+
+.header_list_item {
+    color: white;
+    display: inline;
+    margin: 0px 30px;
+    cursor: pointer;
+}
+
+.header_list_item:hover {
+    color: black;
+}
+
+.active {
+    color: black;
+    text-decoration: underline;
+}
