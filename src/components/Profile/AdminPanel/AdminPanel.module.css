@@ -186,3 +186,71 @@
     color: white;
     box-shadow: 0 0 5px rgba(0,0,0,1);
 }
+
+@media screen and (max-width: 500px) {
+    .order_wrapper {
+        display: grid;
+        width: 90%;
+        grid-template-areas:
+            "img product"
+            "order order"
+            "button button"
+    }
+    .img {
+        grid-area: img;
+    }
+    .product_info {
+        justify-content: start;
+        grid-area: product;
+    }
+    .order_info {
+        grid-area: order;
+    }
+    .change_button {
+        margin: 10px;
+        width: auto;
+        text-align: center;
+        grid-area: button;
+        margin: 0;
+    }
+
+    .product_wrapper {
+        display: grid;
+        width: 90%;
+        grid-template-areas:
+            "img product order"
+            "img product  button"
+    }
+    .product_price {
+        grid-area: price;
+    }
+    .product_name {
+        font-size: 17px;
+    }
+
+    .product_count {
+        font-size: 11px;
+    }
+
+    .product_id {
+        font-size: 11px;
+    }
+
+    .maket_wrapper {
+        display: grid;
+        width: 90%;
+        grid-template-areas:
+            "product status"
+            "product solution"
+    }
+    .order_solution_block {
+        grid-area: solution;
+    }
+    .maket_status {
+        grid-area: status;
+    }
+    .order_solution_button {
+        width: 120px;
+        font-size: 11px;
+    }
+}

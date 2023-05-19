@@ -85,8 +85,7 @@
 }
 
 .admin_panel_activate {
-    display: block;
-    margin-left: 20px;
+    margin-right: 10px;
     width: 34%;
     background: rgb(0, 126, 167);
     padding: 20px;
@@ -104,4 +103,33 @@
     background: rgb(0, 126, 167);
     padding: 20px;
     border-radius: 40px;
+}
+
+@media screen and (max-width: 500px) {
+    .user_info_block_wrapper {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        height: 160px;
+    }
+    .profile_wrapper {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 25px;
+    }
+    .admin_panel_activate {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        height: 160px;
+    }
+    .logout_button {
+        align-self: start;
+        margin-right: auto;
+    }
 }

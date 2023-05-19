@@ -7,6 +7,7 @@ import DeliveryTypeContainer from "./DeliveryType/DeliveryTypeContainer";
 const GetOrders = (props) => {
 
     const [cartProducts, setCartProduct] = useState([])
+    const [orderIsProcessed, SetOrderIsProcessed] = useState(false)
     const products = props.products
 
     let price = 0
@@ -31,7 +32,6 @@ const GetOrders = (props) => {
         else if (cartProducts.length === products.length) {
             let sort = products.sort((a, b) => a.product_id > b.product_id ? 1 : -1);
             for (let i = 0; i < products.length; i++) {
-                debugger
                 if (cartProducts[i].productCount !== sort[i].count) {
                     getCartProducts().then()
                 }
@@ -70,13 +70,19 @@ const GetOrders = (props) => {
                     Итого: {price}
                 </div>
                 <hr/>
-                <DeliveryTypeContainer cartProducts={cartProducts}/>
+                <DeliveryTypeContainer cartProducts={cartProducts} SetOrderIsProcessed={SetOrderIsProcessed}/>
             </div>
         );
-    } else {
+    } else if (!orderIsProcessed) {
         return (
             <div className={css.empty_cart}>
                 Корзина пуста
+            </div>
+        )
+    } else {
+        return (
+            <div className={css.empty_cart}>
+                Заказ успешно офрмлен
             </div>
         )
     }

@@ -3,8 +3,6 @@ const SET_ACTIVE_TYPE = 'SET-ACTIVE-TYPE'
 const GET_PRODUCTS = 'GET-PRODUCTS'
 const GET_TYPES = 'GET-TYPES'
 
-debugger
-
 const PT = {
     all: "Все",
     animals: "Животные",
@@ -18,8 +16,6 @@ let InitiateCatalog = {
     activeType: 1,
     products: []
 }
-
-debugger
 
 const CatalogReducer = (state = InitiateCatalog, active) => {
     switch (active.type) {

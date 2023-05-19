@@ -18,12 +18,10 @@ const FavoritesReducer = (state = InitiateFavorites, active) => {
             }
         }
         case REMOVE_FAVORITES: {
-            debugger
             return {
                 ...state,
                 products: state.products.filter(product => product.id != active.product.id)
             }
-            debugger
         }
         case SET_ACTIVE: {
             return {

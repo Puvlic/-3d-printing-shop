@@ -153,3 +153,52 @@
     color: white;
     box-shadow: 0 0 5px rgba(0,0,0,1);
 }
+
+@media screen and (max-width: 500px) {
+    .order_wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+    }
+    .order_img {
+        width: 100px;
+        height: 100px;
+    }
+    .order_name {
+        font-size: 18px;
+    }
+    .order_id {
+        font-size: 10px;
+    }
+    .order_count {
+        font-size: 10px;
+    }
+    .order_status {
+        margin: 0;
+        font-size: 12px;
+        flex-direction: column;
+        text-align: end;
+        align-items: end;
+        justify-content: center;
+    }
+    .maket_wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+    }
+    .maket_status {
+        font-size: 16px;
+        justify-content: start;
+    }
+
+    .back {
+        display: flex;
+        width: 50%;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .back_to_menu_button {
+        margin: 0;
+    }
+}

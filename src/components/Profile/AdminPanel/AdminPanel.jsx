@@ -198,7 +198,7 @@ const AdminPanel = (props) => {
                                 </div>
                             </div>
                             <div className={css.order_info}>
-                                <div className={css.product_count}>
+                                <div className={css.product_price}>
                                     Цена: {product.price}
                                 </div>
                             </div>

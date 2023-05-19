@@ -109,7 +109,9 @@ const Orders = (props) => {
 
     return (
         <div className={css.orders}>
-            <NavLink className={css.back_to_menu_button} to="/profile">Вернуться в профиль</NavLink>
+            <div className={css.back}>
+                <NavLink className={css.back_to_menu_button} to="/profile">Вернуться в профиль</NavLink>
+            </div>
             <OrdersHeaderContainer/>
             <div className={ordersClassName}>
                 {orders.map(order => (
@@ -127,7 +129,7 @@ const Orders = (props) => {
                             </div>
                         </div>
                         <div className={css.order_status}>
-                            <div className={css.order_status}>
+                            <div>
                                 Статус: {order.status}
                             </div>
                             <div>

@@ -54,6 +54,11 @@ const ProductChange = (props) => {
         }).then(res => {
             console.log(res.data)
         })
+
+        setValidation({
+            class: css.validation_accepted,
+            text: "Изенения успешно внесены"
+        })
     }
 
     useEffect(() => {
@@ -78,13 +83,20 @@ const ProductChange = (props) => {
         setAboutProduct(event.target.value)
     }
 
+    const ResetValidation = () => {
+        setValidation({
+            class: css.validation_accepted,
+            text: ""
+        })
+    }
+
     return (
         <div className={css.inputs_wrapper}>
             <div className={css.inputs_block}>
-                Название <input className={css.input} type="text" value={name} onChange={SetProductName}/>
-                Цена <input className={css.input} type="text" value={price} onChange={SetProductPrice}/>
-                Количество <input className={css.input} type="text" value={count} onChange={setProductCount}/>
-                Описание <textarea className={css.textarea} value={aboutProduct} onChange={setAboutProductFunction}></textarea>
+                Название <input className={css.input} type="text" value={name} onClick={ResetValidation} onChange={SetProductName}/>
+                Цена <input className={css.input} type="text" value={price} onClick={ResetValidation} onChange={SetProductPrice}/>
+                Количество <input className={css.input} type="text" value={count} onClick={ResetValidation} onChange={setProductCount}/>
+                Описание <textarea className={css.textarea} value={aboutProduct} onClick={ResetValidation} onChange={setAboutProductFunction}></textarea>
             </div>
             <div className={css.validation + " " + validation.class}>
                 {validation.text}

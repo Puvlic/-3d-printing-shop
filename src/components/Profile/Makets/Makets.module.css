@@ -84,3 +84,34 @@
     color: white;
     box-shadow: 0 0 5px rgba(0,0,0,1);
 }
+
+@media screen and (max-width: 500px) {
+    .maket_wrapper {
+        color: white;
+        background: rgb(0, 126, 167);
+        padding: 20px;
+        margin: 20px auto;
+        display: flex;
+        justify-content: start;
+        width: 90%;
+        border-radius: 20px;
+    }
+    .order_solution_button {
+        flex-direction: row;
+        font-size: 12px;
+        width: 120px;
+        padding: 15px 10px;
+    }
+    .maket_status {
+        text-align: start;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+    .download_button {
+        flex-direction: row;
+        font-size: 12px;
+        width: 120px;
+        padding: 15px 10px;
+    }
+}

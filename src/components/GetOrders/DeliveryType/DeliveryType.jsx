@@ -15,6 +15,7 @@ const DeliveryType = (props) => {
     const [pickupActiveActive, SetPickupActive] = useState(css.pickup_delivery_deactivated)
     const [postalDeliveryActive, SetPostalDeliveryActive] = useState(css.postal_delivery_deactivated)
 
+
     const [ED_validation, setED_validation] = useState({
         class: "",
         text: "text"
@@ -59,7 +60,8 @@ const DeliveryType = (props) => {
     }
 
     const SetNewPostalDeliveryCardNumber = (event) => {
-        props.onSetNewPostalDeliveryCardNumber(event.target.value)
+            props.onSetNewPostalDeliveryCardNumber(event.target.value)
+
     }
 
     const SetNewPostalDeliveryAddress = (event) => {
@@ -90,6 +92,10 @@ const DeliveryType = (props) => {
             })
             return
         }
+        setED_validation({
+            class: css.validation_accepted,
+            text: "Заказ успешно оформлен"
+        })
         for (let i = 0; i < props.cartProducts.length; i++) {
             axios.post("http://localhost:8080/api/order", {
                 count: props.cartProducts[i].productCount,
@@ -111,6 +117,7 @@ const DeliveryType = (props) => {
                 }
             })
         }
+        props.SetOrderIsProcessed(true)
         CleanParams()
     }
 
@@ -136,6 +143,10 @@ const DeliveryType = (props) => {
             })
             return
         }
+        setP_validation({
+            class: css.validation_accepted,
+            text: "Заказ успешно оформлен"
+        })
         for (let i = 0; i < props.cartProducts.length; i++) {
             axios.post("http://localhost:8080/api/order", {
                 count: props.cartProducts[i].productCount,
@@ -145,6 +156,7 @@ const DeliveryType = (props) => {
                 address: props.P_address,
             }).then()
         }
+        props.SetOrderIsProcessed(true)
         CleanParams()
     }
 
@@ -163,6 +175,10 @@ const DeliveryType = (props) => {
             })
             return
         }
+        setPD_validation({
+            class: css.validation_accepted,
+            text: "Заказ успешно оформлен"
+        })
         for (let i = 0; i < props.cartProducts.length; i++) {
             axios.post("http://localhost:8080/api/order", {
                 count: props.cartProducts[i].productCount,
@@ -172,6 +188,7 @@ const DeliveryType = (props) => {
                 address: props.PD_address,
             }).then()
         }
+        props.SetOrderIsProcessed(true)
         CleanParams()
     }
 
@@ -190,7 +207,6 @@ const DeliveryType = (props) => {
                     </li>
                 </ul>
             </div>
-            {}
             <div className={expressDeliveryActive}>
                 <div className={css.requisites}>
                     Номер карты <input className={css.textbox} type="text" placeholder="Номер"

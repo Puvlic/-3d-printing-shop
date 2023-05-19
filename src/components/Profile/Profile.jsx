@@ -72,13 +72,13 @@ const Profile = (props) => {
                     </button>
                 </div>
 
-                <div className={css.orders_wrapper}>
+                <div className={css.user_info_block_wrapper}>
                     <NavLink to="/orders" className={css.orders_list}>
                         Спиок заказов
                     </NavLink>
 
                 </div>
-                <div className={css.maket_panel}>
+                <div className={css.user_info_block_wrapper}>
                     <NavLink to={"/approved_makets/" + user.id} className={css.orders_list}>
                         Одобренные макеты
                     </NavLink>

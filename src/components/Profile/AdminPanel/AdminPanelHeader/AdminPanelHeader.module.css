@@ -4,10 +4,11 @@
     font-size: 19px;
 }
 .header_list {
-
+ padding: 0;
 }
 
 .header_list_item {
+    padding: 0;
     color: white;
     display: inline;
     margin: 0px 30px;

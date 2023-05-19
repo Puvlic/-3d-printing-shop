@@ -6,7 +6,6 @@ const AboutUs = (props) => {
 
     if (props.products.length === 0) {
         axios.get('http://localhost:8080/api/product').then(res => {
-                debugger
                 console.log((res.data))
                 props.onGetProducts(res.data)
             }
@@ -21,7 +20,6 @@ const AboutUs = (props) => {
                     знаем, как она может изменить нашу жизнь, позволяя создавать уникальные и креативные вещи.
                 </div>
                 <img src={props.products[3].img} alt="" className={css.img}/>
-
             </div>
             <div className={css.right}>
 

@@ -41,7 +41,6 @@ const Products = (props) => {
             } else if (cartProduct.length === props.products.length) {
                 let sort = props.products.sort((a, b) => a.product_id > b.product_id ? 1 : -1);
                 for (let i = 0; i < props.products.length; i++) {
-                    debugger
                     if (cartProduct[i].productCount !== sort[i].count) {
                         getCartProducts().then()
                     }

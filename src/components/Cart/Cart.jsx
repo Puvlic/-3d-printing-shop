@@ -60,7 +60,6 @@ const Cart = (props) => {
     }
 
     const AddProductCount = (id) => {
-        debugger
         props.onAddProductCount(id)
     }
 
@@ -71,7 +70,6 @@ const Cart = (props) => {
     let cartClass = props.active ? css.open : css.close
     let buyButtonClass = props.products.length !== 0 ? css.open : css.close
 
-    debugger
     return (
         <div className={css.cart + ' ' + cartClass} onClick={SetActive}>
             <div className={css.cart_content + ' ' + cartClass} onClick={e => e.stopPropagation()}>

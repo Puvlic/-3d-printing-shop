@@ -17,6 +17,7 @@
 .product_img {
     border-radius: 15px;
     max-width: 100px;
+    max-height: 100px;
 }
 
 .product_info {
@@ -32,7 +33,6 @@
 }
 
 .product_count {
-    margin-top: 7px;
     font-size: 12px;
 }
 
@@ -51,5 +51,36 @@
     justify-content: center;
     color: black;
     font-size: 25px;
+}
+
+@media screen and (max-width: 500px) {
+    .get_orders_block {
+        width: 90%;
+    }
+    .product_wrapper {
+        margin: 5px 0;
+    }
+    .product_img {
+        max-width: 80px;
+        min-height: 80px;
+    }
+    .product_name {
+        font-size: 17px;
+    }
+    .product_id {
+        font-size: 10px;
+    }
+    .product_count {
+        font-size: 10px;
+    }
+    .product_price {
+        font-size: 12px;
+        margin-left: auto;
+    }
+    .all_product_price {
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+    }
 }
 

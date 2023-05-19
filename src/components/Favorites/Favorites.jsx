@@ -9,7 +9,6 @@ const Favorites = (props) => {
     const cookies = new Cookies();
     let jwt = cookies.get('jwt')
     let decoded = decodeToken(jwt)
-    debugger
     const getProducts = async () => {
         if (jwt) {
             await axios.get('http://localhost:8080/api/favorites/' + decoded.id).then(res => {
@@ -58,7 +57,6 @@ const Favorites = (props) => {
     }
 
     let favoriteActive = props.active ? css.opened : css.closed
-    debugger
     return (
         <div className={css.favorite_block + ' ' + favoriteActive} onClick={SetActive}>
             <div className={css.blur + ' ' + favoriteActive}>

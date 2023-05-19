@@ -41,6 +41,7 @@ const mapDispatchToProps = (dispatch) => {
         onSetProductsActionCreator: (products) => dispatch(SetProductsActionCreator(products)),
         onCleanFavorites: () => dispatch(ClearFavoritesAC()),
         onSetNewFavorites: (products) => dispatch(SetNewFavoritesAC(products)),
+
     }
 }
 

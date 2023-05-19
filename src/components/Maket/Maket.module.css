@@ -102,8 +102,11 @@
     }
     .button {
         min-width: 135px;
-        min-height: 36px;
+        min-height: 50px;
         height: 40px;
         margin: 0 auto;
+    }
+    .body {
+        width: 90%
     }
 }

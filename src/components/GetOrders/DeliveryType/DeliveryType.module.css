@@ -76,3 +76,7 @@
 .validation_denied {
     color: rgb(145, 48, 16);
 }
+
+.validation_accepted {
+    color: rgb(38, 199, 57);
+}

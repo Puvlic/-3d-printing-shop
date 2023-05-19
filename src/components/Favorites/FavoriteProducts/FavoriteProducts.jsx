@@ -9,8 +9,6 @@ import {useState} from "react";
 
 const FavoriteProducts = (props) => {
 
-
-
     const cookies = new Cookies();
     let jwt = cookies.get('jwt')
     let decoded = decodeToken(jwt)
@@ -33,9 +31,7 @@ const FavoriteProducts = (props) => {
         }
     }
 
-
     getProducts()
-
 
     const SetFavoritesActive = () => {
         props.SetActive()

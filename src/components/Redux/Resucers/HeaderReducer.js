@@ -1,4 +1,5 @@
 const SET_ACTIVE_INSET = 'SET-ACTIVE-INSET'
+const SET_PHONE_MENU_ACTIVE = 'SET-PHONE-MENU-ACTIVE'
 
 const GetLocation = () => {
     let href = window.location.href
@@ -8,10 +9,9 @@ const GetLocation = () => {
 
 const location = GetLocation()
 
-debugger
-
 let InitialAction = {
-    activeInset: location
+    activeInset: location,
+    phoneMenuActive: false
 }
 
 const HeaderReducer = (state = InitialAction, action) => {
@@ -21,7 +21,12 @@ const HeaderReducer = (state = InitialAction, action) => {
                 ...state,
                 activeInset: action.inset
             }
-            debugger
+        }
+        case SET_PHONE_MENU_ACTIVE: {
+            return {
+                ...state,
+                phoneMenuActive: action.active
+            }
         }
         default:
             return state
@@ -29,5 +34,6 @@ const HeaderReducer = (state = InitialAction, action) => {
 }
 
 export const SetActiveInsetActionCreator = (inset) => ({type: SET_ACTIVE_INSET, inset: inset})
+export const SetPhoneMenuActiveAC = (active) => ({type: SET_PHONE_MENU_ACTIVE, active: active})
 
 export default HeaderReducer

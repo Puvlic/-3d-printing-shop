@@ -23,6 +23,7 @@ import ChangeOrderContainer from "./components/Profile/AdminPanel/OrderChange/Ch
 import ProductChange from "./components/Profile/AdminPanel/ProductChange/ProductChange";
 import MaketChange from "./components/Profile/AdminPanel/MaketChange/MaketChange";
 import Makets from "./components/Profile/Makets/Makets";
+import MobileMenu from "./components/MobileMenu/MobileMenu";
 
 const App = (props) => {
     let cartActive = props.cartActive
@@ -84,7 +85,6 @@ const App = (props) => {
     let cartButtonCssClass = cartIsEmpty()
     let favoritesButtonCssClass = favoritesIsEmpty()
 
-    debugger
     return (
         <BrowserRouter className={css.body}>
             <div className={css.wrapper + ' ' + modalWindow}>
@@ -121,6 +121,7 @@ const App = (props) => {
             <CartContainer/>
             <LoginMenuContainer/>
             <UserContextMenuContainer/>
+            <MobileMenu/>
         </BrowserRouter>
     );
 }

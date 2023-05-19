@@ -58,13 +58,25 @@ const ChangeOrder = (props) => {
             status: props.statusText,
             address: props.addressText
         })
+
+        setValidation({
+            class: css.validation_accepted,
+            text: "Изенения успешно внесены"
+        })
+    }
+
+    const ResetValidation = () => {
+        setValidation({
+            class: css.validation_accepted,
+            text: ""
+        })
     }
 
     return (
         <div className={css.inputs_wrapper}>
             <div className={css.inputs_wrapper}>
-                Адрес<input type="text" value={props.addressText} className={css.input} placeholder={"Адрес"} onChange={SetChangeOrderAddressText}/>
-                Статус<input type="text" value={props.statusText} className={css.input} placeholder={"Статус"} onChange={SetChangeOrderStatusText}/>
+                Адрес<input type="text" value={props.addressText} onClick={ResetValidation} className={css.input} placeholder={"Адрес"} onChange={SetChangeOrderAddressText}/>
+                Статус<input type="text" value={props.statusText} onClick={ResetValidation} className={css.input} placeholder={"Статус"} onChange={SetChangeOrderStatusText}/>
             </div>
             <div className={css.validation + " " + validation.class}>
                 {validation.text}

@@ -4,7 +4,6 @@ import css from './CatalogHeader.module.css'
 const CatalogHeader = (props) => {
 
     const SetActiveType = (event) => {
-        debugger
         props.onSetActiveType(Number(event.target.id))
     }
 

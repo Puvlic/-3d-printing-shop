@@ -12,7 +12,6 @@ const Main = (props) => {
 
     if (props.products.length === 0) {
         axios.get('http://localhost:8080/api/product').then(res => {
-                debugger
                 console.log((res.data))
                 props.onGetProducts(res.data)
             }
@@ -38,7 +37,6 @@ const Main = (props) => {
         return products
     }
     popularProducts = GetPopularProducts();
-    debugger
 
     return (
         <div className={css.main}>
@@ -47,15 +45,13 @@ const Main = (props) => {
                     <h2 className={css.h_info}>{'3D-ПЕЧАТЬ'}</h2>
                     <p className={css.p_info}>Откройте для себя новые возможности творчества! Воплотите свои фантазии в реальность с нашей широкой линейкой качественных и доступных продуктов, которые помогут вам создавать уникальные и оригинальные проекты. Создавайте, экспериментируйте и воплощайте свои самые смелые идеи в жизнь с нашим интернет-магазином 3D-печатных изделий!</p>
                 </div>
-                <button className={css.start_buying}>
+                {/*<button className={css.start_buying}>*/}
                     <NavLink onClick={ChangeActiveInset} className={css.link} to='/catalog'>Начать покупки</NavLink>
-                </button>
+                {/*</button>*/}
             </div>
             <div className={css.slider}>
                 <CarouselBox products={popularProducts}/>
             </div>
-
-
         </div>
     )
 }

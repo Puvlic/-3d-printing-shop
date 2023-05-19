@@ -118,3 +118,12 @@
     color: red;
     position: static;
 }
+
+@media screen and (max-width: 500px) {
+    .cart.cartIsFilled {
+        display: none;
+    }
+    .favorites.favoritesIsFilled {
+        display: none;
+    }
+}

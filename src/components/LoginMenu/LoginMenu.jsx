@@ -36,12 +36,10 @@ const LoginMenu = (props) => {
     }
 
     const UsernameChange = (event) => {
-        debugger
         props.onUsernameChange(event.target.value)
     }
 
     const PasswordChange = (event) => {
-        debugger
         props.onPasswordChange(event.target.value)
     }
 

@@ -1,0 +1,77 @@
+.phone_menu_wrapper {
+    opacity: 0;
+    position: fixed;
+    height: 100vh;
+    background-color: rgb(111, 156, 235);
+    backdrop-filter: blur(2px);
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    transition: opacity 0.4s;
+}
+
+.menu_active {
+    pointer-events: all;
+    /*display: block;*/
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+.menu_disable {
+    pointer-events: none;
+    /*display: none;*/
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.phone_menu {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.phone_menu li {
+    list-style: none;
+}
+
+.phone_menu_header {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.menuItem_block {
+    margin: 5px 0;
+}
+
+.menuItem {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.menuItem:hover {
+    color: white;
+}
+
+.hr_line {
+    opacity: 1;
+    border-top: 2px solid white;
+}
+
+.isLogged {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    display: none;
+}
+
+.isLogged:hover {
+    color: white;
+}

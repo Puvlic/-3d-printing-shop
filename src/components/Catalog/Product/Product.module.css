@@ -1,8 +1,10 @@
 .product {
-
+    display: flex;
+    flex-direction: column;
 }
 
 .product_body {
+    color: white;
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -22,15 +24,38 @@
 }
 
 .product_name {
-    margin: 5px;
+    font-size: 45px;
 }
 
 .product_id {
-    margin: 5px;
+    font-size: 16px;
 }
 
 .product_about {
+    margin-top: 20px;
     font-family: Arial;
-    margin: 5px;
+}
+
+.buttons_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons_block button {
+    font-family: Arial;
+    color:  white;
+    min-width: 120px;
+    min-height: 40px;
+    background: rgb(0, 52, 183);
+    border: 0px solid rgb(108, 92, 231);
+    border-radius: 40px;
+    box-shadow: 0 0 0 rgba(0,0,0,0.5);
+    margin: 0 7px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.buttons_block button:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,1);
 }
 

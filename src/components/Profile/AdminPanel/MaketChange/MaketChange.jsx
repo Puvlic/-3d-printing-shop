@@ -10,6 +10,7 @@ const MaketChange = () => {
 
     const [price, setPrice] = useState(null)
     const [isChange, setIsChange] = useState(false)
+    const [changeIsAccepted, SetChangeIsAccepted] = useState(false)
 
     const [validation, setValidation] = useState({
         class: css.validation,
@@ -19,9 +20,13 @@ const MaketChange = () => {
     useEffect(() => {
         if (!isChange) {
             axios.get('http://localhost:8080/api/maket/byId/' + id).then(res => {
-                console.log(res.data)
-                setPrice(res.data.price)
-                setIsChange(true)
+                if(res.data.accept_status != 1) {
+                    SetChangeIsAccepted(true)
+                } else {
+                    console.log(res.data)
+                    setPrice(res.data.price)
+                    setIsChange(true)
+                }
             })
         }
     }, [price, isChange])
@@ -34,28 +39,46 @@ const MaketChange = () => {
             })
             return
         }
+
         axios.put('http://localhost:8080/api/maket/', {
             id: id,
             price: price
         }).then(res => {
             console.log(res)
         })
+
+        setValidation({
+            class: css.validation_accepted,
+            text: "Изенения успешно внесены"
+        })
+        SetChangeIsAccepted(true)
     }
 
-    return (
-        <div className={css.inputs_wrapper}>
-            <div className={css.inputs_block}>
-                Цена <input className={css.input} type="text" value={price} onChange={e => setPrice(Number(e.target.value))}/>
+    if (!changeIsAccepted) {
+        return (
+            <div className={css.inputs_wrapper}>
+                <div className={css.inputs_block}>
+                    Цена <input className={css.input} type="text" value={price} onChange={e => setPrice(Number(e.target.value))}/>
+                </div>
+                <div className={css.validation + " " + validation.class}>
+                    {validation.text}
+                </div>
+                <div className={css.buttons_block}>
+                    <NavLink onClick={acceptMaket} className={css.links}>Оформить</NavLink>
+                    <NavLink to={'/admin'} className={css.links}>Назад</NavLink>
+                </div>
             </div>
-            <div className={css.validation + " " + validation.class}>
-                {validation.text}
-            </div>
-            <div className={css.buttons_block}>
-                <NavLink onClick={acceptMaket} className={css.links}>Оформить</NavLink>
+        );
+    } else {
+        return  (
+            <div className={css.maket_accepted_block}>
+                Заказ был успешно оформлен
                 <NavLink to={'/admin'} className={css.links}>Назад</NavLink>
             </div>
-        </div>
-    );
+
+        )
+    }
+
 };
 
 export default MaketChange;

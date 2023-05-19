@@ -1,6 +1,5 @@
 import css from './Delivery.module.css'
 
-
 const Delivery = () => {
     return (
         <div className={css.wrapper}>

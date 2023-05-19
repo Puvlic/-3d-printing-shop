@@ -37,7 +37,6 @@ const CartReducer = (state = InitiateState, active) => {
 
         }
         case SET_CART_PRODUCTS: {
-            debugger
             return {
                 ...state,
                 cartProducts: active.products.map(product => {return product})
