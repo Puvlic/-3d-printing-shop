@@ -13,6 +13,7 @@ const AdminPanel = (props) => {
     const [products, setProducts] = useState([])
     const [orders, setOrders] = useState([])
     const [makets, setMakets] = useState([])
+    const [acceptedMakets, setAcceptedMakets] = useState([])
     const [isChange, setIsChange] = useState(false)
 
     const cookies = new Cookies();
@@ -24,19 +25,28 @@ const AdminPanel = (props) => {
     let ordersClassName
     let productsClassName
     let maketsClassName
+    let acceptetMeketsClassName
 
     if (props.activeInset === 1) {
         ordersClassName = css.activate
         productsClassName = css.deactivate
         maketsClassName = css.deactivate
+        acceptetMeketsClassName = css.deactivate
     } else if (props.activeInset === 2) {
         ordersClassName = css.deactivate
         productsClassName = css.activate
         maketsClassName = css.deactivate
-    } else {
+        acceptetMeketsClassName = css.deactivate
+    } else if (props.activeInset === 3){
         ordersClassName = css.deactivate
         productsClassName = css.deactivate
         maketsClassName = css.activate
+        acceptetMeketsClassName = css.deactivate
+    } else {
+        ordersClassName = css.deactivate
+        productsClassName = css.deactivate
+        maketsClassName = css.deactivate
+        acceptetMeketsClassName = css.activate
     }
 
     const GetProducts = async () => {
@@ -88,13 +98,24 @@ const AdminPanel = (props) => {
         }
     }
 
+    const GetAcceptedMakets = async () => {
+        try {
+            await axios.get('http://localhost:8080/api/accepted_maket').then(res => {
+                setAcceptedMakets(res.data)
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     useEffect(() => {
         if (isChange === false) {
             GetProducts().then()
             GetOrders().then()
             GetMakets().then()
+            GetAcceptedMakets().then()
         }
-    }, [products, orders, makets, isChange])
+    }, [products, orders, makets, acceptedMakets, isChange])
 
     if (orders.length !== 0) {
         console.log(orders)
@@ -228,6 +249,29 @@ const AdminPanel = (props) => {
                                 <NavLink to={'/admin/change_maket/' + maket.id} className={css.order_solution_button}>Принять заказ</NavLink>
                                 <button id={maket.id} onClick={deleteMaket} className={css.order_solution_button}>Отмена заказа</button>
                             </div>
+                        </div>
+
+                    ))}
+                </div>
+                <div className={acceptetMeketsClassName}>
+                    {acceptedMakets.map(maket => (
+                        <div className={css.maket_wrapper}>
+                            <div className={css.product_info}>
+                                <div>
+                                    Имя файла: {maket.original_file_name}
+                                </div>
+                                <div className={css.maket_id}>
+                                    id: {maket.id}
+                                </div>
+                                <div>
+                                    {maket.price > 0 ? 'Цена: ' + maket.price : ''}
+                                </div>
+                                <button className={css.download_button} id={maket.id} onClick={DownloadFile}>Скачать файл</button>
+                            </div>
+                            <div className={css.maket_status}>
+                                Статус: {maket.status}
+                            </div>
+                            <NavLink to={'/accepted_maket_change/' + maket.id} className={css.change_button}>Изменить</NavLink>
                         </div>
 
                     ))}

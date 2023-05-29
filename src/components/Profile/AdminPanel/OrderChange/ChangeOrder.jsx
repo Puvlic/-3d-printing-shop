@@ -85,8 +85,6 @@ const ChangeOrder = (props) => {
                 <NavLink onClick={UpdateOrder} className={css.links}>Изменить</NavLink>
                 <NavLink to={'/admin'} className={css.links}>Назад</NavLink>
             </div>
-
-
         </div>
     );
 };

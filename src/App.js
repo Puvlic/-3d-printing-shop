@@ -24,6 +24,7 @@ import ProductChange from "./components/Profile/AdminPanel/ProductChange/Product
 import MaketChange from "./components/Profile/AdminPanel/MaketChange/MaketChange";
 import Makets from "./components/Profile/Makets/Makets";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
+import AcceptedMaketChange from "./components/Profile/AdminPanel/AcceptedMaketChange/AcceptedMaketChange";
 
 const App = (props) => {
     let cartActive = props.cartActive
@@ -105,6 +106,7 @@ const App = (props) => {
                         <Route path='/admin/change_product/:id' element={<ProductChange/>}></Route>
                         <Route path='/admin/change_maket/:id' element={<MaketChange/>}></Route>
                         <Route path='/approved_makets/:id' element={<Makets/>}></Route>
+                        <Route path='/accepted_maket_change/:id' element={<AcceptedMaketChange/>}></Route>
                     </Routes>
                 </div>
                 <FooterContainer className={css.footer}/>

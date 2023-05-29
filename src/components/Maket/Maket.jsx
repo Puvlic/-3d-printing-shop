@@ -58,6 +58,8 @@ const Maket = (props) => {
             original_file_name: file.name,
             address: address
         }).then(r => {
+            setFile("")
+            SetValidation("Файл отправлен")
             console.log(r)
         })
     }
@@ -71,7 +73,7 @@ const Maket = (props) => {
         }
         else {
             SetValidation("Неверное расширение файла")
-            setFile({name: undefined})
+            setFile({name: ""})
         }
     }
 
@@ -89,7 +91,7 @@ const Maket = (props) => {
                 <input className={css.input} placeholder='Адрес' value={address} onChange={e => setAddress(e.target.value)}  type="text"/>
             </div>
             <div className={css.file_name}>
-                {file.name ? "Имя файла: " + file.name : validation}
+                {file.name === "" ? "Имя файла: " + file.name : validation}
             </div>
         </div>
     );
